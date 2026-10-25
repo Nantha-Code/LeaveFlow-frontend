@@ -186,24 +186,9 @@ export default function LoginPage() {
 
           {/* Password */}
           <div className="form-field">
-            <div className="password-label-row">
-              <label className="field-label" htmlFor="password">
-                Password
-              </label>
-
-              <button
-                className="forgot-link"
-                type="button"
-                onClick={() =>
-                  setErrorMessage(
-                    'Please contact your administrator to reset your password.'
-                  )
-                }
-                disabled={isSubmitting}
-              >
-                Forgot password?
-              </button>
-            </div>
+            <label className="field-label" htmlFor="password">
+              Password
+            </label>
 
             <div className="input-container">
               <div className="input-icon-wrap">
@@ -231,9 +216,7 @@ export default function LoginPage() {
               <button
                 className="btn-toggle-password"
                 type="button"
-                onClick={() =>
-                  setShowPassword((previous) => !previous)
-                }
+                onClick={() => setShowPassword((previous) => !previous)}
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
                 aria-pressed={showPassword}
                 disabled={isSubmitting}
@@ -241,23 +224,37 @@ export default function LoginPage() {
                 {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
-          </div>
 
-          {/* Remember Me */}
-          <div className="checkbox-row">
-            <input
-              className="form-checkbox"
-              id="rememberMe"
-              name="remember"
-              type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-              disabled={isSubmitting}
-            />
+            <div className="password-options-row">
+              <div className="checkbox-row">
+                <input
+                  className="form-checkbox"
+                  id="rememberMe"
+                  name="remember"
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  disabled={isSubmitting}
+                />
 
-            <label className="checkbox-label" htmlFor="rememberMe">
-              Remember this device
-            </label>
+                <label className="checkbox-label" htmlFor="rememberMe">
+                  Remember this device
+                </label>
+              </div>
+
+              <button
+                className="forgot-link"
+                type="button"
+                onClick={() =>
+                  setErrorMessage(
+                    'Please contact your administrator to reset your password.'
+                  )
+                }
+                disabled={isSubmitting}
+              >
+                Forgot password?
+              </button>
+            </div>
           </div>
 
           {/* Sign In Button */}
